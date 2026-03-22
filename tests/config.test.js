@@ -142,6 +142,23 @@ describe('loadConfig', () => {
         }
     })
 
+    it('reads process.env.APP_ENV at call time, not at import time', async () => {
+        // First call with one env value
+        const orig = process.env.APP_ENV
+        process.env.APP_ENV = 'production'
+        const config1 = await loadConfig({ dir: tmpDir })
+        expect(config1.server).to.deep.equal({ port: 8080, host: '0.0.0.0' })
+
+        // Change APP_ENV after module is already imported — loadConfig must pick up new value
+        process.env.APP_ENV = 'development'
+        const config2 = await loadConfig({ dir: tmpDir })
+        expect(config2.server).to.deep.equal({ port: 3000, host: 'localhost' })
+
+        // Restore
+        if (orig === undefined) delete process.env.APP_ENV
+        else process.env.APP_ENV = orig
+    })
+
     it('skips non-file entries (subdirectories) in config dir', async () => {
         const nestedDir = path.join(tmpDir, 'nested')
         const subDir = path.join(nestedDir, 'subdir')

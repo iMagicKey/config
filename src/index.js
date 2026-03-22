@@ -2,15 +2,14 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { readJsonFile } from './modules/readJsonFile.js'
 
-const DEFAULT_OPTIONS = {
-    dir: './config',
-    env: process.env.APP_ENV || 'development',
-    defaults: {},
-    required: [],
-}
-
 export async function loadConfig(options = {}) {
-    const opts = { ...DEFAULT_OPTIONS, ...options }
+    const opts = {
+        dir: './config',
+        env: process.env.APP_ENV || 'development',
+        defaults: {},
+        required: [],
+        ...options,
+    }
     const configDir = path.resolve(opts.dir, opts.env)
 
     // Start with defaults
