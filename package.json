@@ -1,21 +1,32 @@
 {
   "name": "imagic-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Load JSON/JS configuration files by APP_ENV environment variable",
   "type": "module",
   "exports": {
     ".": "./src/index.js",
     "./package.json": "./package.json"
   },
-  "files": ["src", "README.md", "LICENSE"],
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
   "scripts": {
     "test": "node --test ./tests/**/*.test.js",
     "lint": "eslint src tests",
     "lint:fix": "eslint src tests --fix"
   },
-  "engines": { "node": ">=24" },
-  "keywords": ["imagic", "config", "configuration", "env"],
+  "engines": {
+    "node": ">=24"
+  },
+  "keywords": [
+    "imagic",
+    "config",
+    "configuration",
+    "env"
+  ],
   "author": "iMagicKey",
   "license": "MIT",
   "devDependencies": {
