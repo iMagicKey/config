@@ -1,23 +1,25 @@
 # UPDATE — imagic-config
 
-## Критические баги
-- нет
+> Audit performed: 2026-04-07. Version at time of audit: 1.0.1
 
-## package.json
-- нет
+---
 
-## ESLint
-- нет
+## Fixed (2026-04-07)
 
-## Тесты
-- нет
+- [x] **Test coverage** — added tests for `.js` config loading (default export and named exports fallback)
 
-## Улучшения API (backlog)
+---
+
+## API improvements (backlog)
+
 - [ ] Watch mode (reload on file change)
 - [ ] Schema validation (using imagic-validator)
 - [ ] Environment variable substitution in JSON values (${MY_VAR})
 - [ ] Deep merge for nested default objects
 
-## Задачи (backlog)
+---
+
+## Backlog
+
 - [ ] Support `.env` file loading alongside JSON/JS configs
 - [ ] Cache loaded config to avoid re-reading on repeated calls

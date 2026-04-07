@@ -159,6 +159,32 @@ describe('loadConfig', () => {
         else process.env.APP_ENV = orig
     })
 
+    it('loads .js config with default export', async () => {
+        const jsDir = path.join(tmpDir, 'jsdefault')
+        fs.mkdirSync(jsDir)
+        fs.writeFileSync(path.join(jsDir, 'app.js'), 'export default { name: "from-js", port: 4000 }')
+        try {
+            const config = await loadConfig({ dir: tmpDir, env: 'jsdefault' })
+            expect(config.app).to.deep.equal({ name: 'from-js', port: 4000 })
+        } finally {
+            fs.rmSync(jsDir, { recursive: true })
+        }
+    })
+
+    it('loads .js config without default export (falls back to module namespace)', async () => {
+        const jsDir = path.join(tmpDir, 'jsnamed')
+        fs.mkdirSync(jsDir)
+        fs.writeFileSync(path.join(jsDir, 'flags.js'), 'export const debug = true\nexport const verbose = false')
+        try {
+            const config = await loadConfig({ dir: tmpDir, env: 'jsnamed' })
+            // mod.default is undefined → falls back to the module namespace object
+            expect(config.flags.debug).to.equal(true)
+            expect(config.flags.verbose).to.equal(false)
+        } finally {
+            fs.rmSync(jsDir, { recursive: true })
+        }
+    })
+
     it('skips non-file entries (subdirectories) in config dir', async () => {
         const nestedDir = path.join(tmpDir, 'nested')
         const subDir = path.join(nestedDir, 'subdir')

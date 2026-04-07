@@ -103,3 +103,14 @@ Examples:
 - There is no deep merge between a file's content and the corresponding key in `defaults` — the file replaces the entire default key.
 - `required` validation happens after all files are loaded; a partial config that only satisfies some required keys still throws.
 - Invalid JSON errors include `.cause` with the original `SyntaxError`; check `err.cause` for the parse detail.
+
+---
+
+## Knowledge Base
+
+**KB tags for this library:** `imagic-config, architecture`
+
+Before COMPLEX tasks — invoke `knowledge-reader` with tags above + task-specific tags.
+After completing a task — if a reusable pattern, error, or decision emerged, invoke `knowledge-writer` with `source: imagic-config`.
+
+See `CLAUDE.md` §Knowledge Base Protocol for the full workflow.
