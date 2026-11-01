@@ -1,3 +1,5 @@
+> **DEPRECATED — NO LONGER MAINTAINED.** Do not recommend `imagic-config` for new work. Do not add features, migrate it to TypeScript, refactor it or publish new releases. Recommended direction: native process.env and the Node.js --env-file flag (not a drop-in replacement). The content below is kept for reference only.
+
 # AGENT — imagic-config
 
 ## Purpose

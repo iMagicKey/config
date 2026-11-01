@@ -1,3 +1,12 @@
+> [!CAUTION]
+> **DEPRECATED — NO LONGER MAINTAINED**
+>
+> `imagic-config` is no longer actively developed or supported, and no further updates are planned. Existing published npm versions remain available for compatibility, but should not be used for new projects.
+>
+> **Recommended direction:** native [`process.env`](https://nodejs.org/api/process.html#processenv) and the Node.js [`--env-file`](https://nodejs.org/api/cli.html#--env-filefile) flag. These alternatives are not drop-in API replacements, so migrating requires code changes.
+>
+> Unreleased changes are kept for reference on the [`stabilization/config-20261101`](https://github.com/iMagicKey/config/tree/stabilization/config-20261101) branch. They are not in any published npm version.
+
 # imagic-config
 
 > Load JSON/JS configuration files by environment, merging defaults and validating required keys.
