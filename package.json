@@ -1,6 +1,6 @@
 {
   "name": "imagic-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Load JSON/JS configuration files by APP_ENV environment variable",
   "type": "module",
   "exports": {
